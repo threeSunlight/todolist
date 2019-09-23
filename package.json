@@ -1,0 +1,25 @@
+{
+    "name": "todolist",
+    "version": "1.0.0",
+    "description": "前端的价值\r  1.搭建前端工程\r  2.网络优化\r  3.API定制\r  4.nodejs层\r  5.熟练运用高阶函数\r  6.递归组件\r  7.递归函数\r  8.面相对象思维建立\r  9.对原型 实例等了解完善",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "build": "webpack --config webpack.config.js"
+    },
+    "author": "wbj",
+    "license": "ISC",
+    "dependencies": {
+        "css-loader": "^3.2.0",
+        "file-loader": "^4.2.0",
+        "style-loader": "^1.0.0",
+        "url-loader": "^2.1.0",
+        "vue": "^2.6.10",
+        "vue-loader": "^15.7.1",
+        "vue-template-compiler": "^2.6.10",
+        "webpack": "^4.39.3"
+    },
+    "devDependencies": {
+        "webpack-cli": "^3.3.9"
+    }
+}
