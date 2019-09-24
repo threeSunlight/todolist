@@ -1,6 +1,8 @@
 const path = require('path')
+const isDev = peocess.env.NODE_ENV === 'developement'
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
-module.exports = {
+const HTMLWebpackPlugin = require('html-webpack-plugin');
+const config = {
     mode: 'development',
     entry: path.join(__dirname, 'src/main.js'),
     output: {
@@ -18,7 +20,7 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                use: ["css-loader", 'style-loader']
+                use: ["style-loader", "css-loader"]
             },
             {
                 test: /\.(gif|jpg|png|jpeg|svg)$/,
@@ -26,13 +28,33 @@ module.exports = {
                     loader: 'url-loader',
                     options: {
                         limit: 1024,
-                        [name]: '[name].[ext]'
+                        name: '[name].[ext]'
                     }
                 }]
+            },
+            {
+                test: /\.styl/,
+                use: [
+                    'style-loader',
+                    'css-loader',
+                    'stylus-loader'
+                ]
             }
         ]
     },
     plugins: [
         new VueLoaderPlugin()
+        new HTMLWebpackPlugin()
     ]
-};
+}
+if (isDev) {
+    config.devServer = {
+        port: 8080,
+        host: '0.0.0.0',
+        overlay: {
+            errors: true
+        }
+    }
+}
+
+module.exports = config
